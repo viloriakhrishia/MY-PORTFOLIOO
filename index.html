@@ -4,85 +4,344 @@
     <title>Khrisian Nette Viloria - Portfolio</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial;
-            text-align: center;
+            margin: 0;
             background: #f4f7ff;
+            color: #222;
+            transition: 0.3s;
+        }
+
+        body.dark {
+            background: #111827;
+            color: white;
+        }
+
+        nav {
+            background: #172554;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        nav a:hover {
+            color: #60a5fa;
+        }
+
+        header {
+            text-align: center;
+            padding: 70px 20px;
+            background: linear-gradient(135deg, #172554, #2563eb);
+            color: white;
         }
 
         .profile-pic {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 20px #0006;
+        }
+
+        header h1 {
+            font-size: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 10px;
+            background: white;
+            color: #2563eb;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        section {
+            max-width: 900px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        h2 {
+            color: #2563eb;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #0002;
+            transition: 0.3s;
+        }
+
+        .dark .card {
+            background: #1f2937;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 15px;
+            background: #dbeafe;
+            border-radius: 10px;
+        }
+
+        .dark .skill {
+            background: #374151;
+        }
+
+        .bar {
+            background: #ddd;
+            height: 8px;
+            border-radius: 10px;
+            margin-top: 8px;
+        }
+
+        .bar div {
+            background: #2563eb;
+            height: 100%;
+            border-radius: 10px;
         }
 
         button {
             background: #2563eb;
             color: white;
             border: none;
-            padding: 10px 18px;
-            margin: 5px;
-            border-radius: 8px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #172554;
+            color: white;
+        }
+
+        @media(max-width:600px) {
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
         }
     </style>
 </head>
 
 <body>
 
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#project">Project</a>
+    <a href="#contact">Contact</a>
+    <button onclick="darkMode()">🌙</button>
+</nav>
+
+<header id="home">
+
     <img src="Messenger_creation_14452.jpg"
-         alt="Khrisian Nette Viloria"
-         class="profile-pic">
+         class="profile-pic"
+         alt="Khrisian Nette Viloria">
 
     <h1>Khrisian Nette Viloria</h1>
 
-    <h2>BSIT Student</h2>
+    <p>BSIT Student | Network Design and Management</p>
 
-    <p>
-        3rd year BSIT student at Nueva Vizcaya State University.
-    </p>
+    <a href="#about" class="btn">About Me</a>
+    <a href="#project" class="btn">My Project</a>
 
-    <h2>About Me</h2>
+</header>
 
-    <p>
-        My major is Network Design and Management.
-        I am interested in networking, technology, and system development.
-    </p>
+<section id="about">
 
-    <h2>Education</h2>
+    <h2>👩‍💻 About Me</h2>
 
-    <p>
-        Nueva Vizcaya State University<br>
-        BS Information Technology<br>
-        Major: Network Design and Management<br>
-        3rd Year | 2024 - Present
-    </p>
+    <div class="card">
+        <p>
+            I am a 3rd year BSIT student at
+            Nueva Vizcaya State University.
+        </p>
 
-    <h2>Skills</h2>
+        <p>
+            My major is Network Design and Management.
+            I am interested in networking, technology,
+            and system development.
+        </p>
+    </div>
 
-    <ul>
-        <li>Computer Networking</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>Cisco Packet Tracer</li>
-        <li>System Integration</li>
-        <li>Basic Programming</li>
-    </ul>
+</section>
 
-    <h2>My Project</h2>
+<section>
 
-    <h3>Sports Equipment Reservation and Management System</h3>
+    <h2>🎓 Education</h2>
 
-    <p>
-        A system for managing sports equipment,
-        reservations, borrowing, and returning.
-    </p>
+    <div class="card">
+        <h3>Nueva Vizcaya State University</h3>
 
-    <h2>Contact</h2>
+        <p>
+            Bachelor of Science in Information Technology
+        </p>
 
-    <p>
-        Email: viloriaknette@gmail.com
-    </p>
+        <p>
+            Major: Network Design and Management
+        </p>
+
+        <p>3rd Year | 2024 - Present</p>
+    </div>
+
+</section>
+
+<section id="skills">
+
+    <h2>💻 My Skills</h2>
+
+    <div class="skills">
+
+        <div class="skill">
+            🌐 Computer Networking
+            <div class="bar">
+                <div style="width:75%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            💻 HTML
+            <div class="bar">
+                <div style="width:80%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            🎨 CSS
+            <div class="bar">
+                <div style="width:65%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            🔌 Cisco Packet Tracer
+            <div class="bar">
+                <div style="width:75%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            🔗 System Integration
+            <div class="bar">
+                <div style="width:65%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            🧑‍💻 Basic Programming
+            <div class="bar">
+                <div style="width:60%"></div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="project">
+
+    <h2>🏀 My Project</h2>
+
+    <div class="card">
+
+        <h3>Sports Equipment Reservation and Management System</h3>
+
+        <p>
+            A system designed to manage sports equipment,
+            reservations, borrowing, and returning.
+        </p>
+
+        <ul>
+            <li>View available equipment</li>
+            <li>Make reservations</li>
+            <li>Manage requests</li>
+            <li>Record borrowed equipment</li>
+            <li>Record returned equipment</li>
+        </ul>
+
+    </div>
+
+</section>
+
+<section id="contact">
+
+    <h2>📩 Contact Me</h2>
+
+    <div class="card" style="text-align:center">
+
+        <p>
+            📧 <b>Email:</b>
+            <a href="mailto:viloriaknette@gmail.com">
+                viloriaknette@gmail.com
+            </a>
+        </p>
+
+        <button onclick="copyEmail()">
+            📋 Copy Email
+        </button>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>© 2026 Khrisian Nette Viloria</p>
+    <p>BSIT | Network Design and Management</p>
+
+</footer>
+
+<script>
+
+function darkMode() {
+    document.body.classList.toggle("dark");
+}
+
+function copyEmail() {
+    navigator.clipboard.writeText("viloriaknette@gmail.com");
+    alert("Email copied!");
+}
+
+</script>
 
 </body>
 </html>
