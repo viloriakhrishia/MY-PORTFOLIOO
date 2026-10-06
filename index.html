@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Khrisian Nette Viloria - Portfolio</title>
+    <title>Khrisian Nette Viloria | Portfolio</title>
 
     <style>
         * {
@@ -10,151 +10,186 @@
         }
 
         body {
-            font-family: Arial;
             margin: 0;
-            background: #f4f7ff;
-            color: #222;
-            transition: 0.3s;
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
         }
 
-        body.dark {
-            background: #111827;
-            color: white;
-        }
-
+        /* NAVBAR */
         nav {
-            background: #172554;
-            padding: 15px;
+            background: #0f172a;
+            padding: 18px;
             text-align: center;
             position: sticky;
             top: 0;
+            z-index: 10;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 10px;
+            margin: 0 12px;
+            font-weight: bold;
         }
 
         nav a:hover {
             color: #60a5fa;
         }
 
-        header {
+        /* HOME */
+        .home {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 70px 20px;
-            background: linear-gradient(135deg, #172554, #2563eb);
+            padding: 30px;
+            background: linear-gradient(135deg, #0f172a, #2563eb);
             color: white;
         }
 
-        .profile-pic {
-            width: 160px;
-            height: 160px;
+        .profile {
+            width: 170px;
+            height: 170px;
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid white;
-            box-shadow: 0 5px 20px #0006;
+            box-shadow: 0 10px 30px #0005;
         }
 
-        header h1 {
-            font-size: 40px;
+        .home h1 {
+            font-size: 45px;
+            margin: 20px 0 10px;
+        }
+
+        .home h2 {
+            color: #bfdbfe;
+            font-weight: normal;
+        }
+
+        .home p {
+            max-width: 600px;
+            margin: 20px auto;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 20px;
-            margin: 10px;
+            padding: 12px 22px;
+            margin: 8px;
+            border-radius: 25px;
             background: white;
             color: #2563eb;
             text-decoration: none;
-            border-radius: 25px;
             font-weight: bold;
+            transition: .3s;
         }
 
         .btn:hover {
-            transform: scale(1.05);
+            transform: translateY(-4px);
+            background: #dbeafe;
         }
 
+        /* SECTIONS */
         section {
-            max-width: 900px;
+            max-width: 950px;
             margin: auto;
-            padding: 50px 20px;
+            padding: 70px 25px;
         }
 
-        h2 {
-            color: #2563eb;
+        section h2 {
             text-align: center;
+            color: #2563eb;
+            margin-bottom: 35px;
         }
 
+        /* CARDS */
         .card {
             background: white;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px #0002;
-            transition: 0.3s;
-        }
-
-        .dark .card {
-            background: #1f2937;
+            padding: 30px;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px #0001;
+            transition: .3s;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px #0002;
         }
 
+        /* SKILLS */
         .skills {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 20px;
         }
 
         .skill {
-            padding: 15px;
-            background: #dbeafe;
-            border-radius: 10px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #0001;
         }
 
-        .dark .skill {
-            background: #374151;
+        .skill span {
+            font-weight: bold;
         }
 
         .bar {
-            background: #ddd;
-            height: 8px;
+            height: 9px;
+            background: #e2e8f0;
             border-radius: 10px;
-            margin-top: 8px;
+            margin-top: 10px;
         }
 
         .bar div {
-            background: #2563eb;
             height: 100%;
+            background: #2563eb;
             border-radius: 10px;
         }
 
-        button {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 20px;
-            cursor: pointer;
+        /* PROJECT */
+        .project {
+            border-left: 6px solid #2563eb;
         }
 
+        .project h3 {
+            color: #0f172a;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+        }
+
+        .contact a {
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
         footer {
+            background: #0f172a;
+            color: white;
             text-align: center;
             padding: 25px;
-            background: #172554;
-            color: white;
         }
 
-        @media(max-width:600px) {
+        /* MOBILE */
+        @media(max-width: 600px) {
+
+            .home h1 {
+                font-size: 32px;
+            }
+
             .skills {
                 grid-template-columns: 1fr;
             }
 
-            header h1 {
-                font-size: 30px;
+            nav a {
+                margin: 5px;
+                font-size: 13px;
             }
         }
     </style>
@@ -162,55 +197,81 @@
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
+    <a href="#education">Education</a>
     <a href="#skills">Skills</a>
     <a href="#project">Project</a>
     <a href="#contact">Contact</a>
-    <button onclick="darkMode()">🌙</button>
 </nav>
 
-<header id="home">
 
-    <img src="Messenger_creation_14452.jpg"
-         class="profile-pic"
-         alt="Khrisian Nette Viloria">
+<!-- HOME -->
 
-    <h1>Khrisian Nette Viloria</h1>
+<div class="home" id="home">
 
-    <p>BSIT Student | Network Design and Management</p>
+    <div>
 
-    <a href="#about" class="btn">About Me</a>
-    <a href="#project" class="btn">My Project</a>
+        <img src="Messenger_creation_14452.jpg"
+             class="profile"
+             alt="Khrisian Nette Viloria">
 
-</header>
+        <h1>Khrisian Nette Viloria</h1>
+
+        <h2>BSIT Student | Network Design & Management</h2>
+
+        <p>
+            Welcome to my portfolio! I am a 3rd year
+            Bachelor of Science in Information Technology
+            student at Nueva Vizcaya State University.
+        </p>
+
+        <a href="#about" class="btn">About Me</a>
+
+        <a href="#project" class="btn">View Project</a>
+
+    </div>
+
+</div>
+
+
+<!-- ABOUT -->
 
 <section id="about">
 
-    <h2>👩‍💻 About Me</h2>
+    <h2>About Me</h2>
 
     <div class="card">
+
         <p>
-            I am a 3rd year BSIT student at
-            Nueva Vizcaya State University.
+            Hello! I am <b>Khrisian Nette Viloria</b>,
+            a BSIT student majoring in Network Design
+            and Management.
         </p>
 
         <p>
-            My major is Network Design and Management.
             I am interested in networking, technology,
-            and system development.
+            system development, and learning new
+            Information Technology skills.
         </p>
+
     </div>
 
 </section>
 
-<section>
 
-    <h2>🎓 Education</h2>
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <h2>Education</h2>
 
     <div class="card">
-        <h3>Nueva Vizcaya State University</h3>
+
+        <h3>🎓 Nueva Vizcaya State University</h3>
 
         <p>
             Bachelor of Science in Information Technology
@@ -220,54 +281,60 @@
             Major: Network Design and Management
         </p>
 
-        <p>3rd Year | 2024 - Present</p>
+        <p>
+            3rd Year | 2024 - Present
+        </p>
+
     </div>
 
 </section>
 
+
+<!-- SKILLS -->
+
 <section id="skills">
 
-    <h2>💻 My Skills</h2>
+    <h2>My Skills</h2>
 
     <div class="skills">
 
         <div class="skill">
-            🌐 Computer Networking
+            🌐 <span>Computer Networking</span>
             <div class="bar">
                 <div style="width:75%"></div>
             </div>
         </div>
 
         <div class="skill">
-            💻 HTML
+            💻 <span>HTML</span>
             <div class="bar">
                 <div style="width:80%"></div>
             </div>
         </div>
 
         <div class="skill">
-            🎨 CSS
+            🎨 <span>CSS</span>
             <div class="bar">
                 <div style="width:65%"></div>
             </div>
         </div>
 
         <div class="skill">
-            🔌 Cisco Packet Tracer
+            🔌 <span>Cisco Packet Tracer</span>
             <div class="bar">
                 <div style="width:75%"></div>
             </div>
         </div>
 
         <div class="skill">
-            🔗 System Integration
+            🔗 <span>System Integration</span>
             <div class="bar">
                 <div style="width:65%"></div>
             </div>
         </div>
 
         <div class="skill">
-            🧑‍💻 Basic Programming
+            🧑‍💻 <span>Basic Programming</span>
             <div class="bar">
                 <div style="width:60%"></div>
             </div>
@@ -277,23 +344,30 @@
 
 </section>
 
+
+<!-- PROJECT -->
+
 <section id="project">
 
-    <h2>🏀 My Project</h2>
+    <h2>Featured Project</h2>
 
-    <div class="card">
+    <div class="card project">
 
-        <h3>Sports Equipment Reservation and Management System</h3>
+        <h3>
+            🏀 Sports Equipment Reservation
+            and Management System
+        </h3>
 
         <p>
-            A system designed to manage sports equipment,
-            reservations, borrowing, and returning.
+            A proposed system designed to make sports
+            equipment reservation and management more
+            organized and efficient.
         </p>
 
         <ul>
             <li>View available equipment</li>
             <li>Make reservations</li>
-            <li>Manage requests</li>
+            <li>Manage reservation requests</li>
             <li>Record borrowed equipment</li>
             <li>Record returned equipment</li>
         </ul>
@@ -302,46 +376,44 @@
 
 </section>
 
+
+<!-- CONTACT -->
+
 <section id="contact">
 
-    <h2>📩 Contact Me</h2>
+    <h2>Let's Connect</h2>
 
-    <div class="card" style="text-align:center">
+    <div class="card contact">
 
         <p>
-            📧 <b>Email:</b>
+            Interested in getting in touch?
+        </p>
+
+        <p>
+            📧
             <a href="mailto:viloriaknette@gmail.com">
                 viloriaknette@gmail.com
             </a>
         </p>
 
-        <button onclick="copyEmail()">
-            📋 Copy Email
-        </button>
-
     </div>
 
 </section>
 
+
+<!-- FOOTER -->
+
 <footer>
 
-    <p>© 2026 Khrisian Nette Viloria</p>
-    <p>BSIT | Network Design and Management</p>
+    <p>
+        © 2026 Khrisian Nette Viloria
+    </p>
+
+    <p>
+        BSIT • Network Design and Management
+    </p>
 
 </footer>
-
-<script>
-
-function darkMode() {
-    document.body.classList.toggle("dark");
-}
-
-function copyEmail() {
-    navigator.clipboard.writeText("viloriaknette@gmail.com");
-    alert("Email copied!");
-}
-
-</script>
 
 </body>
 </html>
