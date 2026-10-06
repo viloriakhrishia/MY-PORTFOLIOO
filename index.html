@@ -1,34 +1,552 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
 
-function darkMode() {
-    document.body.classList.toggle("dark");
-}
+<head>
 
-function sendMessage() {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    let name = document.getElementById("name").value;
-    let message = document.getElementById("message").value;
+    <title>Khrisian Nette Viloria - Portfolio</title>
 
-    if (name === "" || message === "") {
+    <style>
 
-        document.getElementById("result").innerText =
-        "Please complete the form.";
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-    } else {
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7ff;
+            color: #222;
+            line-height: 1.6;
+        }
 
-        window.location.href =
-        "mailto:viloriaknette@gmail.com?subject=Portfolio Message&body="
-        + encodeURIComponent(message);
+        /* NAVIGATION */
 
-    }
-}
+        nav {
+            background: #172554;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-function copyEmail() {
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            font-weight: bold;
+        }
 
-    navigator.clipboard.writeText("viloriaknette@gmail.com");
+        nav a:hover {
+            color: #60a5fa;
+        }
 
-    alert("Email copied!");
+        /* HERO */
 
-}
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #172554, #2563eb);
+            color: white;
+            padding: 30px;
+        }
 
-</script>
+        /* PROFILE PICTURE */
+
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            display: block;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            color: #bfdbfe;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* BUTTON */
+
+        .btn {
+            display: inline-block;
+            margin: 20px 5px;
+            padding: 12px 22px;
+            background: white;
+            color: #2563eb;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            background: #dbeafe;
+        }
+
+        /* SECTIONS */
+
+        section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 70px 25px;
+        }
+
+        section h2 {
+            text-align: center;
+            color: #2563eb;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* CARDS */
+
+        .card {
+            background: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        /* SKILLS */
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            background: #eff6ff;
+        }
+
+        .skill-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        /* PROGRESS BAR */
+
+        .progress {
+            background: #e5e7eb;
+            height: 10px;
+            border-radius: 20px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #2563eb;
+            border-radius: 20px;
+        }
+
+        /* PROJECT */
+
+        .project {
+            border-left: 5px solid #2563eb;
+        }
+
+        .project h3 {
+            color: #172554;
+            margin-bottom: 10px;
+        }
+
+        .project ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* BACK TO TOP */
+
+        .top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #2563eb;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .top:hover {
+            background: #172554;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+
+</nav>
+
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+    <div>
+
+        <!-- PROFILE PICTURE -->
+        <img src="Messenger_creation_14452.jpg"
+             alt="Khrisian Nette Viloria"
+             class="profile-pic">
+
+        <h1>Khrisian Nette Viloria</h1>
+
+        <h2>BSIT Student | Network Design and Management</h2>
+
+        <p>
+            Welcome to my personal portfolio.
+            I am a 3rd year Bachelor of Science in Information Technology
+            student at Nueva Vizcaya State University.
+        </p>
+
+        <a href="#about" class="btn">
+            About Me
+        </a>
+
+        <a href="#projects" class="btn">
+            View My Project
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2>About Me</h2>
+
+    <div class="card">
+
+        <p>
+            Hello! My name is <b>Khrisian Nette Viloria</b>.
+            I am a 3rd year BSIT student at
+            Nueva Vizcaya State University.
+        </p>
+
+        <br>
+
+        <p>
+            My major is <b>Network Design and Management</b>.
+            I am interested in networking, technology,
+            system development, and learning new skills
+            in Information Technology.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <h2>Education</h2>
+
+    <div class="card">
+
+        <h3>🎓 Nueva Vizcaya State University</h3>
+
+        <p>
+            Bachelor of Science in Information Technology
+        </p>
+
+        <p>
+            Major: Network Design and Management
+        </p>
+
+        <p>
+            3rd Year | 2024 - Present
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <h2>My Skills</h2>
+
+    <div class="skills-container">
+
+        <div class="skill-card">
+
+            <div class="skill-icon">🌐</div>
+
+            <h3>Networking</h3>
+
+            <p>Intermediate</p>
+
+            <div class="progress">
+                <div class="progress-bar" style="width: 75%;"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <div class="skill-icon">💻</div>
+
+            <h3>HTML</h3>
+
+            <p>Intermediate</p>
+
+            <div class="progress">
+                <div class="progress-bar" style="width: 80%;"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <div class="skill-icon">🎨</div>
+
+            <h3>CSS</h3>
+
+            <p>Basic</p>
+
+            <div class="progress">
+                <div class="progress-bar" style="width: 65%;"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <div class="skill-icon">🔌</div>
+
+            <h3>Cisco Packet Tracer</h3>
+
+            <p>Intermediate</p>
+
+            <div class="progress">
+                <div class="progress-bar" style="width: 75%;"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <div class="skill-icon">🔗</div>
+
+            <h3>System Integration</h3>
+
+            <p>Basic</p>
+
+            <div class="progress">
+                <div class="progress-bar" style="width: 65%;"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <div class="skill-icon">🧑‍💻</div>
+
+            <h3>Programming</h3>
+
+            <p>Basic</p>
+
+            <div class="progress">
+                <div class="progress-bar" style="width: 60%;"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECT -->
+
+<section id="projects">
+
+    <h2>My Project</h2>
+
+    <div class="card project">
+
+        <h3>
+            🏀 Sports Equipment Reservation and Management System
+        </h3>
+
+        <p>
+            A proposed system designed to help manage
+            sports equipment reservations, borrowing,
+            and returning of equipment.
+        </p>
+
+        <ul>
+
+            <li>View available equipment</li>
+            <li>Make equipment reservations</li>
+            <li>Manage reservation requests</li>
+            <li>Record borrowed equipment</li>
+            <li>Record returned equipment</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <h2>Contact Me</h2>
+
+    <div class="card contact">
+
+        <p>
+            I would be happy to hear from you!
+        </p>
+
+        <br>
+
+        <p>
+            📧 Email:
+            <a href="mailto:viloriaknette@gmail.com">
+                viloriaknette@gmail.com
+            </a>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Khrisian Nette Viloria
+    </p>
+
+    <p>
+        BSIT | Network Design and Management
+    </p>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+
+<a href="#home" class="top">↑</a>
+
+
+</body>
+
+</html>
