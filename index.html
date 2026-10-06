@@ -1,62 +1,418 @@
-<!DOCTYPE html>
-<html>
+
+
+    <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Khrisian Nette Viloria - Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Khrisian Nette Viloria | Portfolio</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f5f7fb;
+    color: #222;
+    transition: 0.3s;
+}
+
+body.dark {
+    background: #111827;
+    color: white;
+}
+
+nav {
+    background: #172554;
+    padding: 18px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 8px;
+    font-size: 14px;
+}
+
+button {
+    border: none;
+    padding: 11px 18px;
+    margin: 6px;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+section {
+    padding: 70px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: #2563eb;
+}
+
+.hero h2 {
+    margin: 15px 0;
+}
+
+.hero p {
+    margin: 15px auto;
+    max-width: 650px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2563eb;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.dark .card {
+    background: #1f2937;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.skill {
+    background: #2563eb;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 20px;
+}
+
+.progress {
+    background: #ddd;
+    border-radius: 20px;
+    margin: 10px 0 20px;
+    overflow: hidden;
+}
+
+.progress div {
+    background: #2563eb;
+    color: white;
+    padding: 6px;
+    text-align: right;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+textarea {
+    height: 120px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #172554;
+    color: white;
+}
+
+@media(max-width:600px) {
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <h1>Khrisian Nette Viloria</h1>
+<!-- NAVIGATION -->
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
 
-    <h2>BSIT Student</h2>
+    <button onclick="darkMode()">🌙</button>
+</nav>
 
-    <p>
-        I am a 3rd year Bachelor of Science in Information Technology
-        student at Nueva Vizcaya State University.
-    </p>
+
+<!-- HOME -->
+<section class="hero" id="home">
+
+    <div>
+
+        <h1>Hello, I'm Khrisian Nette Viloria</h1>
+
+        <h2>BSIT Student | Network Design and Management</h2>
+
+        <p>
+            Welcome to my personal portfolio. I am a 3rd year
+            Bachelor of Science in Information Technology student
+            at Nueva Vizcaya State University.
+        </p>
+
+        <button onclick="location.href='#about'">
+            About Me
+        </button>
+
+        <button onclick="location.href='#projects'">
+            View Projects
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
 
     <h2>About Me</h2>
 
-    <p>
-        My major is Network Design and Management.
-        I am interested in networking, technology, and system development.
-    </p>
+    <div class="card">
+
+        <p>
+            My name is <b>Khrisian Nette Viloria</b>.
+            I am a 3rd year Bachelor of Science in Information
+            Technology student at Nueva Vizcaya State University.
+        </p>
+
+        <br>
+
+        <p>
+            My major is <b>Network Design and Management</b>.
+            I am interested in networking, system development,
+            and information technology.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+<section id="education">
 
     <h2>Education</h2>
 
-    <p>
-        Nueva Vizcaya State University<br>
-        Bachelor of Science in Information Technology<br>
-        Major: Network Design and Management<br>
-        3rd Year<br>
-        2024 - Present
-    </p>
+    <div class="card">
 
-    <h2>Skills</h2>
+        <h3>Nueva Vizcaya State University</h3>
 
-    <ul>
-        <li>Computer Networking</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>Cisco Packet Tracer</li>
-        <li>System Integration</li>
-        <li>Basic Programming</li>
-    </ul>
+        <p>
+            Bachelor of Science in Information Technology
+        </p>
+
+        <p>
+            Major: Network Design and Management
+        </p>
+
+        <p>
+            3rd Year | 2024 - Present
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills">
+
+    <h2>My Skills</h2>
+
+    <div class="skills">
+
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">Networking</span>
+        <span class="skill">Cisco Packet Tracer</span>
+        <span class="skill">System Integration</span>
+        <span class="skill">Basic Programming</span>
+
+    </div>
+
+    <br>
+
+    <div class="card">
+
+        <p>HTML</p>
+
+        <div class="progress">
+            <div style="width:80%">80%</div>
+        </div>
+
+        <p>Networking</p>
+
+        <div class="progress">
+            <div style="width:75%">75%</div>
+        </div>
+
+        <p>System Integration</p>
+
+        <div class="progress">
+            <div style="width:70%">70%</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+<section id="projects">
 
     <h2>My Project</h2>
 
-    <h3>Sports Equipment Reservation and Management System</h3>
+    <div class="card">
+
+        <h3>🏀 Sports Equipment Reservation and Management System</h3>
+
+        <br>
+
+        <p>
+            A proposed system designed to help manage sports
+            equipment reservations in an organized and efficient way.
+        </p>
+
+        <br>
+
+        <ul>
+            <li>View available equipment</li>
+            <li>Make equipment reservations</li>
+            <li>Manage reservation requests</li>
+            <li>Record borrowed equipment</li>
+            <li>Record returned equipment</li>
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+
+    <h2>Contact Me</h2>
+
+    <div class="card">
+
+        <input type="text" id="name" placeholder="Your Name">
+
+        <input type="email" id="email" placeholder="Your Email">
+
+        <textarea id="message" placeholder="Your Message"></textarea>
+
+        <button onclick="sendMessage()">
+            Send Message
+        </button>
+
+        <button onclick="copyEmail()">
+            📋 Copy Email
+        </button>
+
+        <p id="result"></p>
+
+    </div>
+
+</section>
+
+
+<footer>
 
     <p>
-        A system designed to help manage sports equipment,
-        reservations, borrowing, and returning of equipment.
+        © 2026 Khrishian Nette Viloria
     </p>
-
-    <h2>Contact</h2>
 
     <p>
-        Thank you for visiting my portfolio!
+        BSIT - Network Design and Management
     </p>
+
+</footer>
+
+
+<script>
+
+function darkMode() {
+    document.body.classList.toggle("dark");
+}
+
+function sendMessage() {
+
+    let name = document.getElementById("name").value;
+
+    let message = document.getElementById("message").value;
+
+    if (name === "" || message === "") {
+
+        document.getElementById("result").innerText =
+        "Please complete the form.";
+
+    } else {
+
+        document.getElementById("result").innerText =
+        "Thank you, " + name + "! Your message is ready.";
+
+    }
+}
+
+function copyEmail() {
+
+    navigator.clipboard.writeText("your-email@example.com");
+
+    alert("Email copied!");
+
+}
+
+</script>
 
 </body>
 </html>
